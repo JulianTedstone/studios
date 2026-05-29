@@ -8,6 +8,7 @@ across studios.
 | **studios** | Creative-director. `/studio <brief>` plans a brief, routes each job to a studio, chains artifacts between studios, and is the one place that delivers to external services (Gamma, Canva, Slack, Gmail). |
 | **design-studio** | Markdown → branded **PDF / PPTX / HTML / RevealJS** via **Quarto + Typst**, driven by one `_brand.yml` (Posit brand.yml standard). Versioned outputs + visual QA. |
 | **messaging-studio** | Brand communications — **email, outreach, announcements, multi-step sequences** — composed in a brand's voice. **HTML email via MJML.** |
+| **nitpicker-studio** | Rigorous asset review — **visual/format QA, brief fulfilment, audience/ICP fit, standardised tone-of-voice**, plus a configurable scored test battery (so-what / yawn / sniff) — returning a weighted verdict. Reviews; never edits. |
 
 ## Install
 
@@ -19,12 +20,14 @@ claude plugin marketplace add github:juliantedstone/studios
 claude plugin install studios@studios
 claude plugin install design-studio@studios
 claude plugin install messaging-studio@studios
+claude plugin install nitpicker-studio@studios
 
 # 3. Install the deterministic CLIs (the skills call into these)
 git clone https://github.com/juliantedstone/studios.git
 cd studios
 ./design/install.sh        # 'studio'  CLI (Quarto/Typst)
 ./messaging/install.sh     # 'message' CLI (MJML optional)
+./nitpicker/install.sh     # 'nit'     CLI (review/scoring)
 ```
 
 `./install.sh` at the repo root runs steps 1 + 2 in one go and reports which
