@@ -40,15 +40,26 @@ CLI from a server, or server-side. You never reimplement a studio's logic.
 5. **Chain.** Pass artifacts forward: a design output becomes a messaging
    studio's input, etc. Track the artifact paths each studio returns.
 
-6. **Deliver (single point of contact).** Per `studios.yml → external_services`,
+6. **Review (sign-off gate).** Before delivering, route each finished artifact to
+   a studio offering the **`review-asset`** capability (the nitpicker today) for
+   an independent pass — visual/format QA, brief fulfilment, audience/ICP fit,
+   tone-of-voice, and the scored test battery. Hand it the artifact path, the
+   original brief, and the brand/ICP you planned with; collect its weighted
+   verdict and findings. **The reviewing studio never edits** — on a `revise`/`fail`
+   verdict, loop the findings back to the *producing* studio for a fix, then
+   re-review. Don't deliver a failing artifact: iterate to a pass, or surface the
+   verdict and let the user decide. Skip this step only if the user explicitly
+   opts out, or no active studio offers `review-asset`.
+
+7. **Deliver (single point of contact).** Per `studios.yml → external_services`,
    publish and notify through the external MCP services — e.g. push a deck to
    **Gamma/Canva**, post the link to **Slack**, email the file via **Gmail**.
    You are the only place that talks outward; studios stay local.
    **Confirm with the user before any outward-facing send.**
 
-7. **Report.** Summarise: the plan as executed, what each studio produced (with
-   paths), QA verdicts, and the status of every external delivery (with links).
-   Offer the obvious next iteration.
+8. **Report.** Summarise: the plan as executed, what each studio produced (with
+   paths), the review verdict(s), and the status of every external delivery (with
+   links). Offer the obvious next iteration.
 
 ## Routing rules
 
@@ -59,6 +70,9 @@ CLI from a server, or server-side. You never reimplement a studio's logic.
   closest alternative or a manual step. Never silently drop part of the brief.
 - One studio per capability per job. If the brief needs the same asset in two
   formats (e.g. a deck *and* a one-pager), that's two jobs.
+- The review gate (step 6) is itself capability-routed: send artifacts to
+  whatever studio advertises `review-asset`. Don't hard-code the nitpicker — if a
+  different review studio is registered, it picks up the gate automatically.
 
 ## Conventions
 

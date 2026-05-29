@@ -11,6 +11,8 @@ description: >
 # The character the writing should project.
 attributes:
   - clear
+  - simple
+  - consultative
   - confident
   - human
   - specific
@@ -27,6 +29,10 @@ principles:
     rule: One idea per sentence, one job per paragraph, one ask per piece.
   - id: cut-the-warm-up
     rule: Delete throat-clearing. The first line should already be working.
+  - id: respect-the-readers-culture
+    rule: use British English. Avoid American English slang.
+  - id: watch-pace-and-tone
+    rule: remain calm, never over-caffeinate, never use hyperbole.
 
 mechanics:
   voice: active
@@ -46,6 +52,7 @@ dont:
   - Bury the point under preamble or qualification
   - Use jargon where a plain word exists
   - Pad to length
+  - Use hyperbolic language or sentence constructions
 
 # Phrases that should not appear. The nitpicker flags any of these on sight.
 forbidden:
@@ -63,6 +70,11 @@ forbidden:
   - frictionless
   - at the end of the day
   - in today's fast-paced world
+  - if you are not x-ing, then you are y-ing
+  - it's not an x, it's a y
+  - clean slice
+  - tightly scoped
+  - ship (verb)
 
 # Preferred substitutions — swap the left for the right.
 preferred:
